@@ -15,9 +15,15 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/dynamodb/expression v1.2.0
 	github.com/aws/aws-sdk-go-v2/service/cloudwatch v1.2.0
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.4.2
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.18.0
+	github.com/aws/aws-sdk-go-v2/service/ecs v1.9.1
+	github.com/aws/aws-sdk-go-v2/service/rds v1.9.0
+	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.5.1
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.16.0
 	github.com/aws/aws-sdk-go-v2/service/sns v1.7.1
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.7.1
-	github.com/aws/aws-xray-sdk-go v1.1.0
+	github.com/aws/aws-sdk-go-v2/service/ssm v1.11.0
+	github.com/aws/aws-xray-sdk-go v1.6.0
 	github.com/aws/smithy-go v1.8.0
 	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/elastic/go-elasticsearch/v7 v7.2.1-0.20190714143206-f1e755531ff4
@@ -64,7 +70,7 @@ require (
 	google.golang.org/api v0.20.0
 	google.golang.org/protobuf v1.26.0
 	gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 )
 
 require (
@@ -74,21 +80,16 @@ require (
 	github.com/Microsoft/go-winio v0.4.17 // indirect
 	github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 // indirect
 	github.com/alicebob/gopher-json v0.0.0-20200520072559-a9ecdc9d1d3a // indirect
+	github.com/andybalholm/brotli v1.0.1 // indirect
 	github.com/apache/thrift v0.13.0 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.0.4 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.0.2 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.2.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.3.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.18.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ecs v1.9.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.3.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.0.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.3.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.7.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/rds v1.9.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.5.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.16.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ssm v1.11.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.1.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.2.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.0 // indirect
@@ -124,6 +125,7 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/karlseguin/expect v1.0.8 // indirect
+	github.com/klauspost/compress v1.11.13 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
 	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
 	github.com/leodido/go-urn v1.2.0 // indirect
@@ -141,6 +143,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasthttp v1.24.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
@@ -155,8 +159,8 @@ require (
 	golang.org/x/text v0.3.6 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/appengine v1.6.5 // indirect
-	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a // indirect
-	google.golang.org/grpc v1.33.2 // indirect
+	google.golang.org/genproto v0.0.0-20210114201628-6edceaf6022f // indirect
+	google.golang.org/grpc v1.35.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gotest.tools/v3 v3.0.3 // indirect
 )
