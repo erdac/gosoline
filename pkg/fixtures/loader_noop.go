@@ -1,5 +1,4 @@
-//go:build !fixtures
-// +build !fixtures
+//go:build fixtures
 
 package fixtures
 
@@ -14,7 +13,7 @@ type noopFixtureLoader struct {
 	logger log.Logger
 }
 
-func NewFixtureLoader(ctx context.Context, config cfg.Config, logger log.Logger) FixtureLoader {
+func NewNoopFixtureLoader(ctx context.Context, config cfg.Config, logger log.Logger) FixtureLoader {
 	return &noopFixtureLoader{
 		logger: logger.WithChannel("fixture_loader"),
 	}

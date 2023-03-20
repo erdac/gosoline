@@ -1,6 +1,7 @@
 package application
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"os"
@@ -28,7 +29,7 @@ type (
 	ConfigOption func(config cfg.GosoConf) error
 	LoggerOption func(config cfg.GosoConf, logger log.GosoLogger) error
 	KernelOption func(config cfg.GosoConf) kernelPkg.Option
-	SetupOption  func(config cfg.GosoConf, logger log.GosoLogger) error
+	SetupOption  func(context context.Context, config cfg.GosoConf, logger log.GosoLogger) error
 )
 
 type kernelSettings struct {
@@ -155,8 +156,8 @@ func WithApiServerShares(app *App) {
 
 func WithFixtureBuilderFactory(factory fixtures.FixtureBuilderFactory) Option {
 	return func(app *App) {
-		app.addKernelOption(func(config cfg.GosoConf) kernelPkg.Option {
-			return kernelPkg.WithMiddlewareFactory(fixtures.KernelMiddlewareLoader(factory), kernelPkg.PositionBeginning)
+		app.addSetupOption(func(ctx context.Context, config cfg.GosoConf, logger log.GosoLogger) error {
+			return fixtures.KernelMiddlewareLoader(factory)(ctx, config, logger)
 		})
 	}
 }
@@ -284,7 +285,7 @@ func WithTracing(app *App) {
 		return logger.Option(options...)
 	})
 
-	app.addSetupOption(func(config cfg.GosoConf, logger log.GosoLogger) error {
+	app.addSetupOption(func(_ context.Context, config cfg.GosoConf, logger log.GosoLogger) error {
 		strategy := tracing.NewTraceIdErrorWarningStrategy(logger)
 		stream.AddDefaultEncodeHandler(tracing.NewMessageWithTraceEncoder(strategy))
 
@@ -318,7 +319,7 @@ func WithModuleMultiFactory(factory kernelPkg.ModuleMultiFactory) Option {
 
 func WithUTCClock(useUTC bool) Option {
 	return func(app *App) {
-		app.addSetupOption(func(config cfg.GosoConf, logger log.GosoLogger) error {
+		app.addSetupOption(func(_ context.Context, config cfg.GosoConf, logger log.GosoLogger) error {
 			clock.WithUseUTC(useUTC)
 
 			return nil
